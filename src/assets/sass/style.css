@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito+Sans&family=Nunito:wght@500&family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap");
+body {
+  background-image: url("../../../../../../city.gif");
+  background-size: cover;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .common {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .common input {
+  margin-top: 20px;
+  outline: none;
+  height: 50px;
+  width: 50%;
+  font-size: 25px;
+  text-align: center;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 2px;
+  background-color: transparent;
+}
+
+.container .common p {
+  font-weight: bold;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 80px;
+  letter-spacing: 4px;
+}
+
+.container .common p i {
+  font-size: 40px;
+}
+
+.container .common .name {
+  position: absolute;
+  left: 2%;
+  bottom: 25%;
+}
+
+.container .common .about-city {
+  position: absolute;
+  top: 0;
+  right: 2%;
+  width: auto;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .common .about-city .temp, .container .common .about-city .weather, .container .common .about-city .wind {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .common .about-city .temp i, .container .common .about-city .weather i, .container .common .about-city .wind i {
+  font-size: 80px;
+}
+
+.container .common .about-city .temp .soyuq, .container .common .about-city .weather .soyuq, .container .common .about-city .wind .soyuq {
+  color: #5eb3dd;
+}
+
+.container .common .about-city .temp .isti, .container .common .about-city .weather .isti, .container .common .about-city .wind .isti {
+  color: #ff2020;
+}
+
+.container .common .about-city .temp .fa-sun, .container .common .about-city .weather .fa-sun, .container .common .about-city .wind .fa-sun {
+  color: #e6c612;
+}
+
+.container .common .about-city .temp .fa-cloud, .container .common .about-city .weather .fa-cloud, .container .common .about-city .wind .fa-cloud {
+  color: #e0e0e0;
+}
+
+.container .common .about-city .temp .fa-wind, .container .common .about-city .weather .fa-wind, .container .common .about-city .wind .fa-wind {
+  color: #cacaca;
+}
+
+.container .common .about-city .temp .fa-snowflake, .container .common .about-city .weather .fa-snowflake, .container .common .about-city .wind .fa-snowflake {
+  color: #5eb3dd;
+}
+
+.container .common .about-city .temp span, .container .common .about-city .weather span, .container .common .about-city .wind span {
+  margin-right: 20px;
+}
+
+.container .common .about-city p {
+  font-size: 55px;
+}
+/*# sourceMappingURL=style.css.map */
