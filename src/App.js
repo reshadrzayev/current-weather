@@ -20,7 +20,7 @@ const App = () => {
       setWeather(response.data)
     }
   }
-  console.log(wthr);
+ 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
       setLatitude(pos.coords.latitude)
@@ -28,7 +28,7 @@ const App = () => {
     })
     getWeather()
   }, [latitude, longitude, query])
-  console.log(latitude);
+  
 
   //TEMPERATURE
   if (typeof wthr.main !== 'undefined') { var temp = Math.round(wthr.main.temp - 273.15) }
