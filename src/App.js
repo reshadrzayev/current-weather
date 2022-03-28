@@ -12,7 +12,7 @@ const App = () => {
 
   const getWeather = async () => {
     try {
-      const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${key}`)
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${key}`)
       setWeather(response.data)
     } catch (error) {
       console.log("Error");
@@ -21,7 +21,7 @@ const App = () => {
 
   const getCurrentLocWeather = async () => {
     try {
-      const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
       setWeather(response.data)
     } catch (error) {
       if (error.response.status === 400) {
