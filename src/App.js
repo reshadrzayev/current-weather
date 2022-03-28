@@ -11,24 +11,44 @@ const App = () => {
   const key = '26d1a5fbbf6b7d0235ba9c2e65026e02'
 
   const getWeather = async () => {
-    if (query.length == 0) {
-      const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
-      setWeather(response.data)
-    }
-    else if (query.length > 0) {
+    try {
       const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${key}`)
       setWeather(response.data)
+    } catch (error) {
+      console.log("Error");
     }
   }
- 
+
+  const getCurrentLocWeather = async () => {
+    try {
+      const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
+      setWeather(response.data)
+    } catch (error) {
+      if (error.response.status === 400) {
+        console.log("Loading...");
+      }
+      else {
+        console.log(error.message);
+      }
+    }
+  }
+
+  const handleKeyPress = (e)=>{
+    if(e.key==='Enter'){
+      document.getElementById("submit").click()
+    }
+  }
+
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
       setLatitude(pos.coords.latitude)
       setLongitude(pos.coords.longitude)
+      if (longitude && latitude) {
+        getCurrentLocWeather()
+      }
     })
-    getWeather()
   }, [latitude, longitude, query])
-  
 
   //TEMPERATURE
   if (typeof wthr.main !== 'undefined') { var temp = Math.round(wthr.main.temp - 273.15) }
@@ -36,20 +56,22 @@ const App = () => {
   if (typeof wthr.weather !== 'undefined') { var weather = wthr.weather[0].main }
 
 
-  const hot = <i class="fas fa-thermometer-full isti"></i>
-  const cold = <i class="fas fa-thermometer-empty soyuq"></i>
-  const clear = <i class="fas fa-sun"></i>
-  const cloud = <i class="fas fa-cloud"></i>
-  const rain = <i class="fas fa-cloud-showers-heavy"></i>
-  const snow = <i class="far fa-snowflake"></i>
-  const fog = <i class="fas fa-smog"></i>
-  const thunder = <i class="fas fa-bolt"></i>
-  const wind = <i class="fas fa-wind"></i>
+  const hot = <i className="fas fa-thermometer-full isti"></i>
+  const cold = <i className="fas fa-thermometer-empty soyuq"></i>
+  const clear = <i className="fas fa-sun"></i>
+  const cloud = <i className="fas fa-cloud"></i>
+  const rain = <i className="fas fa-cloud-showers-heavy"></i>
+  const snow = <i className="far fa-snowflake"></i>
+  const fog = <i className="fas fa-smog"></i>
+  const thunder = <i className="fas fa-bolt"></i>
+  const wind = <i className="fas fa-wind"></i>
 
   return (
     <div className='container'>
       <div className="common">
-        <input type="text" placeholder='country/city/settlement/village' value={query} onChange={e => setQuery(e.target.value)} />
+        <input id='input' type="text" placeholder='country/city/settlement/village' value={query} onChange={e => setQuery(e.target.value)} onKeyPress={handleKeyPress}/>
+        <br />
+        <button id='submit' onClick={() => { getWeather() }}>Search</button>
         <div className="name"><p>
           {wthr.name} , {typeof wthr.sys !== 'undefined' ? wthr.sys.country : "city"}
         </p></div>

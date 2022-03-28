@@ -48,6 +48,18 @@ body {
   background-color: transparent;
 }
 
+.container .common button {
+  width: 150px;
+  height: 50px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid;
+  font-size: 25px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
 .container .common p {
   font-weight: bold;
   font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -77,7 +89,9 @@ body {
           align-items: center;
 }
 
-.container .common .about-city .temp, .container .common .about-city .weather, .container .common .about-city .wind {
+.container .common .about-city .temp,
+.container .common .about-city .weather,
+.container .common .about-city .wind {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,35 +103,51 @@ body {
           align-items: center;
 }
 
-.container .common .about-city .temp i, .container .common .about-city .weather i, .container .common .about-city .wind i {
+.container .common .about-city .temp i,
+.container .common .about-city .weather i,
+.container .common .about-city .wind i {
   font-size: 80px;
 }
 
-.container .common .about-city .temp .soyuq, .container .common .about-city .weather .soyuq, .container .common .about-city .wind .soyuq {
+.container .common .about-city .temp .soyuq,
+.container .common .about-city .weather .soyuq,
+.container .common .about-city .wind .soyuq {
   color: #5eb3dd;
 }
 
-.container .common .about-city .temp .isti, .container .common .about-city .weather .isti, .container .common .about-city .wind .isti {
+.container .common .about-city .temp .isti,
+.container .common .about-city .weather .isti,
+.container .common .about-city .wind .isti {
   color: #ff2020;
 }
 
-.container .common .about-city .temp .fa-sun, .container .common .about-city .weather .fa-sun, .container .common .about-city .wind .fa-sun {
+.container .common .about-city .temp .fa-sun,
+.container .common .about-city .weather .fa-sun,
+.container .common .about-city .wind .fa-sun {
   color: #e6c612;
 }
 
-.container .common .about-city .temp .fa-cloud, .container .common .about-city .weather .fa-cloud, .container .common .about-city .wind .fa-cloud {
+.container .common .about-city .temp .fa-cloud,
+.container .common .about-city .weather .fa-cloud,
+.container .common .about-city .wind .fa-cloud {
   color: #e0e0e0;
 }
 
-.container .common .about-city .temp .fa-wind, .container .common .about-city .weather .fa-wind, .container .common .about-city .wind .fa-wind {
+.container .common .about-city .temp .fa-wind,
+.container .common .about-city .weather .fa-wind,
+.container .common .about-city .wind .fa-wind {
   color: #cacaca;
 }
 
-.container .common .about-city .temp .fa-snowflake, .container .common .about-city .weather .fa-snowflake, .container .common .about-city .wind .fa-snowflake {
+.container .common .about-city .temp .fa-snowflake,
+.container .common .about-city .weather .fa-snowflake,
+.container .common .about-city .wind .fa-snowflake {
   color: #5eb3dd;
 }
 
-.container .common .about-city .temp span, .container .common .about-city .weather span, .container .common .about-city .wind span {
+.container .common .about-city .temp span,
+.container .common .about-city .weather span,
+.container .common .about-city .wind span {
   margin-right: 20px;
 }
 

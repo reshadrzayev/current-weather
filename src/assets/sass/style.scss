@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito+Sans&family=Nunito:wght@500&family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
-body{
+
+body {
     background-image: url('https://64.media.tumblr.com/e20d3ba1249021394151372cbd33ea5b/tumblr_p7cdimgJnD1uo5tbio1_1280.gifv');
     background-size: cover;
 }
+
 .container {
     max-width: 1000px;
     margin: auto;
@@ -17,7 +19,8 @@ body{
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        input{
+
+        input {
             margin-top: 20px;
             outline: none;
             height: 50px;
@@ -28,60 +31,88 @@ body{
             letter-spacing: 2px;
             background-color: transparent;
         }
+
+        button {
+            width: 150px;
+            height: 50px;
+            background-color: transparent;
+            outline: none;
+            border: 1px solid;
+            font-size: 25px;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
         p {
             font-weight: bold;
             font-family: 'Yanone Kaffeesatz', sans-serif;
             font-size: 80px;
             letter-spacing: 4px;
-            i{
+
+            i {
                 font-size: 40px;
             }
-           
+
         }
-        .name{
+
+        .name {
             position: absolute;
             left: 2%;
             bottom: 25%;
         }
-        .about-city{
+
+        .about-city {
             position: absolute;
             top: 0;
             right: 2%;
             width: auto;
             justify-content: space-around;
             align-items: center;
-            .temp,.weather,.wind{
+
+            .temp,
+            .weather,
+            .wind {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                i{
+
+                i {
                     font-size: 80px;
                 }
-                .soyuq{
-                    color:#5eb3dd;
-                }
-                .isti{
-                    color: #ff2020;
-                }
-                .fa-sun{
-                    color: rgb(230, 198, 18);
-                }
-                .fa-cloud{
-                    color: rgb(224, 224, 224);
-                }
-                .fa-wind{
-                    color: rgb(202, 202, 202);
-                }
-                .fa-snowflake{
+
+                .soyuq {
                     color: #5eb3dd;
                 }
-                span{
+
+                .isti {
+                    color: #ff2020;
+                }
+
+                .fa-sun {
+                    color: rgb(230, 198, 18);
+                }
+
+                .fa-cloud {
+                    color: rgb(224, 224, 224);
+                }
+
+                .fa-wind {
+                    color: rgb(202, 202, 202);
+                }
+
+                .fa-snowflake {
+                    color: #5eb3dd;
+                }
+
+                span {
                     margin-right: 20px;
                 }
             }
-            p{
+
+            p {
                 font-size: 55px;
-               
+
             }
         }
     }
