@@ -1,9 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito+Sans&family=Nunito:wght@500&family=Raleway&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito+Sans&family=Nunito:wght@500&family=Raleway&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    color: #ffffff;
+}
+
 
 body {
-    background-image: url('https://64.media.tumblr.com/e20d3ba1249021394151372cbd33ea5b/tumblr_p7cdimgJnD1uo5tbio1_1280.gifv');
-    background-size: cover;
+    //background-image: url('https://64.media.tumblr.com/e20d3ba1249021394151372cbd33ea5b/tumblr_p7cdimgJnD1uo5tbio1_1280.gifv');
+    //background-size: cover;
+    background-color: #2d2256;
+    font-family: 'Raleway', sans-serif !important;
 }
 
 .container {
@@ -12,77 +25,90 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    .search{
+        margin-top: 30px;
+        margin-bottom: 50px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+
+        input {
+            height: 50px;
+            width: 90%;
+            font-size: 18px;
+            letter-spacing: 1px;
+            padding: 0 10px;
+            background-color: transparent;
+            outline: none;
+            border: none;
+        }
+        button {
+            color: #ffffff;
+            width: 10%;
+            height: 50px;
+            background-color: transparent;
+            outline: none;
+            border-left: 1px solid #ffffff;
+            border-right: none;
+            border-bottom: none;
+            border-top: none;
+            font-size: 16px;
+            //font-family: 'Yanone Kaffeesatz', sans-serif;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+    }
 
     .common {
         width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-        input {
-            margin-top: 20px;
-            outline: none;
-            height: 50px;
-            width: 50%;
-            font-size: 25px;
-            text-align: center;
-            font-family: 'Yanone Kaffeesatz', sans-serif;
-            letter-spacing: 2px;
-            background-color: transparent;
-        }
-
-        button {
-            width: 150px;
-            height: 50px;
-            background-color: transparent;
-            outline: none;
-            border: 1px solid;
-            font-size: 25px;
-            font-family: 'Yanone Kaffeesatz', sans-serif;
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
-
-        p {
-            font-weight: bold;
-            font-family: 'Yanone Kaffeesatz', sans-serif;
-            font-size: 80px;
-            letter-spacing: 4px;
-
-            i {
-                font-size: 40px;
-            }
-
-        }
+        flex-direction: row;
 
         .name {
-            position: absolute;
-            left: 2%;
-            bottom: 25%;
+            display: flex;
+            flex-direction: column;
+            //height: 100%;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width: 50%;
+            p:nth-child(1){
+                font-weight: 600;
+                font-size: 40px;
+            }
+            p{
+                font-weight: 400;
+                font-size: 30px;
+            }
         }
 
         .about-city {
-            position: absolute;
-            top: 0;
-            right: 2%;
-            width: auto;
-            justify-content: space-around;
+            width: 50%;
+            //justify-content: space-around;
             align-items: center;
 
             .temp,
             .weather,
             .wind {
+                margin-bottom: 40px;
                 display: flex;
-                justify-content: center;
+                //justify-content: center;
                 align-items: center;
 
                 i {
-                    font-size: 80px;
+                    font-size: 50px;
                 }
 
                 .soyuq {
                     color: #5eb3dd;
+                }
+
+                .orta{
+                    color: #d26e48 !important;
                 }
 
                 .isti {
@@ -111,8 +137,8 @@ body {
             }
 
             p {
-                font-size: 55px;
-
+                font-size: 40px;
+                letter-spacing: 1px;
             }
         }
     }

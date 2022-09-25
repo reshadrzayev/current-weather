@@ -1,157 +1,140 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito+Sans&family=Nunito:wght@500&family=Raleway&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  color: #ffffff;
+}
+
 body {
-  background-image: url("https://64.media.tumblr.com/e20d3ba1249021394151372cbd33ea5b/tumblr_p7cdimgJnD1uo5tbio1_1280.gifv");
-  background-size: cover;
+  background-color: #2d2256;
+  font-family: "Raleway", sans-serif !important;
 }
 
 .container {
   max-width: 1000px;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-
-.container .common {
+.container .search {
+  margin-top: 30px;
+  margin-bottom: 50px;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
 }
-
-.container .common input {
-  margin-top: 20px;
-  outline: none;
+.container .search input {
   height: 50px;
-  width: 50%;
-  font-size: 25px;
-  text-align: center;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
-  letter-spacing: 2px;
+  width: 90%;
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 0 10px;
   background-color: transparent;
+  outline: none;
+  border: none;
 }
-
-.container .common button {
-  width: 150px;
+.container .search button {
+  color: #ffffff;
+  width: 10%;
   height: 50px;
   background-color: transparent;
   outline: none;
-  border: 1px solid;
-  font-size: 25px;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  border-left: 1px solid #ffffff;
+  border-right: none;
+  border-bottom: none;
+  border-top: none;
+  font-size: 16px;
   letter-spacing: 1px;
   cursor: pointer;
 }
-
-.container .common p {
-  font-weight: bold;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
-  font-size: 80px;
-  letter-spacing: 4px;
+.container .common {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
-
-.container .common p i {
+.container .common .name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 50%;
+}
+.container .common .name p:nth-child(1) {
+  font-weight: 600;
   font-size: 40px;
 }
-
-.container .common .name {
-  position: absolute;
-  left: 2%;
-  bottom: 25%;
+.container .common .name p {
+  font-weight: 400;
+  font-size: 30px;
 }
-
 .container .common .about-city {
-  position: absolute;
-  top: 0;
-  right: 2%;
-  width: auto;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 50%;
+  align-items: center;
 }
-
 .container .common .about-city .temp,
 .container .common .about-city .weather,
 .container .common .about-city .wind {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  margin-bottom: 40px;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-
 .container .common .about-city .temp i,
 .container .common .about-city .weather i,
 .container .common .about-city .wind i {
-  font-size: 80px;
+  font-size: 50px;
 }
-
 .container .common .about-city .temp .soyuq,
 .container .common .about-city .weather .soyuq,
 .container .common .about-city .wind .soyuq {
   color: #5eb3dd;
 }
-
+.container .common .about-city .temp .orta,
+.container .common .about-city .weather .orta,
+.container .common .about-city .wind .orta {
+  color: #d26e48 !important;
+}
 .container .common .about-city .temp .isti,
 .container .common .about-city .weather .isti,
 .container .common .about-city .wind .isti {
   color: #ff2020;
 }
-
 .container .common .about-city .temp .fa-sun,
 .container .common .about-city .weather .fa-sun,
 .container .common .about-city .wind .fa-sun {
   color: #e6c612;
 }
-
 .container .common .about-city .temp .fa-cloud,
 .container .common .about-city .weather .fa-cloud,
 .container .common .about-city .wind .fa-cloud {
   color: #e0e0e0;
 }
-
 .container .common .about-city .temp .fa-wind,
 .container .common .about-city .weather .fa-wind,
 .container .common .about-city .wind .fa-wind {
   color: #cacaca;
 }
-
 .container .common .about-city .temp .fa-snowflake,
 .container .common .about-city .weather .fa-snowflake,
 .container .common .about-city .wind .fa-snowflake {
   color: #5eb3dd;
 }
-
 .container .common .about-city .temp span,
 .container .common .about-city .weather span,
 .container .common .about-city .wind span {
   margin-right: 20px;
 }
-
 .container .common .about-city p {
-  font-size: 55px;
+  font-size: 40px;
+  letter-spacing: 1px;
 }
+
 /*# sourceMappingURL=style.css.map */
