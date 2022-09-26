@@ -1,145 +1,241 @@
-//@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito+Sans&family=Nunito:wght@500&family=Raleway&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    color: #ffffff;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  color: #ffffff;
 }
 
+body{
+  background-color: rgb(10, 13, 56);
+  overflow-x: hidden !important;
+}
+ html{
+   overflow-x: hidden !important;
+ }
 
-body {
-    //background-image: url('https://64.media.tumblr.com/e20d3ba1249021394151372cbd33ea5b/tumblr_p7cdimgJnD1uo5tbio1_1280.gifv');
-    //background-size: cover;
-    background-color: #2d2256;
-    font-family: 'Raleway', sans-serif !important;
+svg{
+  font-size: 40px !important;
 }
 
-.container {
+.main-day {
+  transition: 1s;
+
+  background-color: rgba(74, 123, 255, 1) !important;
+}
+////
+.main-night {
+  transition: 1s;
+  background-color: rgba(19,24,98,1);
+}
+
+.main-container {
+  position: relative;
+  z-index: 1;
+  transition: 1s;
+  min-height: 100vh;
+  background-color: rgb(10, 13, 56);
+  font-family: 'Raleway', sans-serif !important;
+
+  .not-found{
+    transition: 1s;
+    position: absolute;
+    right: 0;
+    bottom: 10%;
+    width: 400px;
+    padding: 30px 30px;
+    background-color: #075767;
+    color: white !important;
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none;
+
+    .content{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .icon{
+        margin-right: 30px;
+        svg{
+          font-size: 50px !important;
+        }
+      }
+      .text{
+        color: white !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h2{
+          margin-bottom: 20px;
+          word-break: break-word;
+        }
+      }
+    }
+  }
+  .not-found-active{
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .container {
     max-width: 1000px;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    .search{
-        margin-top: 30px;
-        margin-bottom: 50px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        border-radius: 10px;
 
-        input {
-            height: 50px;
-            width: 90%;
-            font-size: 18px;
-            letter-spacing: 1px;
-            padding: 0 10px;
-            background-color: transparent;
-            outline: none;
-            border: none;
-        }
-        button {
-            color: #ffffff;
-            width: 10%;
-            height: 50px;
-            background-color: transparent;
-            outline: none;
-            border-left: 1px solid #ffffff;
-            border-right: none;
-            border-bottom: none;
-            border-top: none;
-            font-size: 16px;
-            //font-family: 'Yanone Kaffeesatz', sans-serif;
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
+    .search {
+      margin-top: 30px;
+      margin-bottom: 50px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+
+      input {
+        height: 50px;
+        width: 90%;
+        font-size: 18px;
+        letter-spacing: 1px;
+        padding: 0 10px;
+        background-color: transparent;
+        outline: none;
+        border: none;
+      }
+      input::placeholder{
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      button {
+        color: #ffffff;
+        width: 10%;
+        height: 50px;
+        background-color: transparent;
+        outline: none;
+        border-left: 1px solid #ffffff;
+        border-right: none;
+        border-bottom: none;
+        border-top: none;
+        font-size: 16px;
+        //font-family: 'Yanone Kaffeesatz', sans-serif;
+        letter-spacing: 1px;
+        cursor: pointer;
+      }
     }
 
     .common {
-        width: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+
+      .name {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        //height: 100%;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 50%;
+      .sunrise-sunset{
+        display: flex;
         flex-direction: row;
-
-        .name {
-            display: flex;
-            flex-direction: column;
-            //height: 100%;
-            align-items: flex-start;
-            justify-content: flex-start;
-            width: 50%;
-            p:nth-child(1){
-                font-weight: 600;
-                font-size: 40px;
-            }
-            p{
-                font-weight: 400;
-                font-size: 30px;
-            }
+        align-items: center;
+        .day-night{
+          display: flex;
+          align-items: center;
+          font-size: 20px;
+          font-weight: 500;
+          svg{
+            margin-right: 10px;
+            font-size: 30px;
+          }
+        }
+        p:nth-child(1){
+          margin-right: 40px;
+        }
+      }
+        p:nth-child(1) {
+          font-weight: 600;
+          font-size: 40px;
         }
 
-        .about-city {
-            width: 50%;
-            //justify-content: space-around;
-            align-items: center;
-
-            .temp,
-            .weather,
-            .wind {
-                margin-bottom: 40px;
-                display: flex;
-                //justify-content: center;
-                align-items: center;
-
-                i {
-                    font-size: 50px;
-                }
-
-                .soyuq {
-                    color: #5eb3dd;
-                }
-
-                .orta{
-                    color: #d26e48 !important;
-                }
-
-                .isti {
-                    color: #ff2020;
-                }
-
-                .fa-sun {
-                    color: rgb(230, 198, 18);
-                }
-
-                .fa-cloud {
-                    color: rgb(224, 224, 224);
-                }
-
-                .fa-wind {
-                    color: rgb(202, 202, 202);
-                }
-
-                .fa-snowflake {
-                    color: #5eb3dd;
-                }
-
-                span {
-                    margin-right: 20px;
-                }
-            }
-
-            p {
-                font-size: 40px;
-                letter-spacing: 1px;
-            }
+        p {
+          font-weight: 400;
+          font-size: 30px;
         }
+      }
+
+      .about-city {
+        width: 50%;
+        //justify-content: space-around;
+        align-items: center;
+
+        .temp,
+        .weather,
+        .wind {
+          margin-bottom: 40px;
+          display: flex;
+          //justify-content: center;
+          align-items: center;
+
+          i {
+            font-size: 50px;
+          }
+
+          .soyuq {
+            color: #5eb3dd;
+          }
+
+          .orta {
+            color: #d26e48 !important;
+          }
+
+          svg{
+            font-size: 40px !important;
+          }
+
+          .isti {
+            color: #ff2020;
+          }
+
+          .fa-sun {
+            color: rgb(230, 198, 18);
+          }
+
+          .fa-cloud {
+            color: rgb(224, 224, 224);
+          }
+          .bi-cloud {
+            font-size: 50px;
+            color: rgb(224, 224, 224);
+          }
+
+          .fa-wind {
+            color: rgb(202, 202, 202);
+          }
+
+          .fa-snowflake {
+            color: #5eb3dd;
+          }
+
+          span {
+            margin-right: 20px;
+          }
+        }
+
+        p {
+          font-size: 40px;
+          letter-spacing: 1px;
+        }
+      }
     }
+  }
 }
+

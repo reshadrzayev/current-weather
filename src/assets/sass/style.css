@@ -9,11 +9,75 @@
 }
 
 body {
-  background-color: #2d2256;
-  font-family: "Raleway", sans-serif !important;
+  background-color: #0a0d38;
+  overflow-x: hidden !important;
 }
 
-.container {
+html {
+  overflow-x: hidden !important;
+}
+
+svg {
+  font-size: 40px !important;
+}
+
+.main-day {
+  transition: 1s;
+  background-color: #4a7bff !important;
+}
+
+.main-night {
+  transition: 1s;
+  background-color: #131862;
+}
+
+.main-container {
+  position: relative;
+  z-index: 1;
+  transition: 1s;
+  min-height: 100vh;
+  background-color: #0a0d38;
+  font-family: "Raleway", sans-serif !important;
+}
+.main-container .not-found {
+  transition: 1s;
+  position: absolute;
+  right: 0;
+  bottom: 10%;
+  width: 400px;
+  padding: 30px 30px;
+  background-color: #075767;
+  color: white !important;
+  opacity: 0;
+  transform: translateX(100%);
+  pointer-events: none;
+}
+.main-container .not-found .content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.main-container .not-found .content .icon {
+  margin-right: 30px;
+}
+.main-container .not-found .content .icon svg {
+  font-size: 50px !important;
+}
+.main-container .not-found .content .text {
+  color: white !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.main-container .not-found .content .text h2 {
+  margin-bottom: 20px;
+  word-break: break-word;
+}
+.main-container .not-found-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+.main-container .container {
   max-width: 1000px;
   margin: auto;
   display: flex;
@@ -21,7 +85,7 @@ body {
   align-items: center;
   flex-direction: column;
 }
-.container .search {
+.main-container .container .search {
   margin-top: 30px;
   margin-bottom: 50px;
   width: 100%;
@@ -31,7 +95,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 10px;
 }
-.container .search input {
+.main-container .container .search input {
   height: 50px;
   width: 90%;
   font-size: 18px;
@@ -41,7 +105,10 @@ body {
   outline: none;
   border: none;
 }
-.container .search button {
+.main-container .container .search input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.main-container .container .search button {
   color: #ffffff;
   width: 10%;
   height: 50px;
@@ -55,84 +122,113 @@ body {
   letter-spacing: 1px;
   cursor: pointer;
 }
-.container .common {
+.main-container .container .common {
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: row;
 }
-.container .common .name {
+.main-container .container .common .name {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   width: 50%;
 }
-.container .common .name p:nth-child(1) {
+.main-container .container .common .name .sunrise-sunset {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.main-container .container .common .name .sunrise-sunset .day-night {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+.main-container .container .common .name .sunrise-sunset .day-night svg {
+  margin-right: 10px;
+  font-size: 30px;
+}
+.main-container .container .common .name .sunrise-sunset p:nth-child(1) {
+  margin-right: 40px;
+}
+.main-container .container .common .name p:nth-child(1) {
   font-weight: 600;
   font-size: 40px;
 }
-.container .common .name p {
+.main-container .container .common .name p {
   font-weight: 400;
   font-size: 30px;
 }
-.container .common .about-city {
+.main-container .container .common .about-city {
   width: 50%;
   align-items: center;
 }
-.container .common .about-city .temp,
-.container .common .about-city .weather,
-.container .common .about-city .wind {
+.main-container .container .common .about-city .temp,
+.main-container .container .common .about-city .weather,
+.main-container .container .common .about-city .wind {
   margin-bottom: 40px;
   display: flex;
   align-items: center;
 }
-.container .common .about-city .temp i,
-.container .common .about-city .weather i,
-.container .common .about-city .wind i {
+.main-container .container .common .about-city .temp i,
+.main-container .container .common .about-city .weather i,
+.main-container .container .common .about-city .wind i {
   font-size: 50px;
 }
-.container .common .about-city .temp .soyuq,
-.container .common .about-city .weather .soyuq,
-.container .common .about-city .wind .soyuq {
+.main-container .container .common .about-city .temp .soyuq,
+.main-container .container .common .about-city .weather .soyuq,
+.main-container .container .common .about-city .wind .soyuq {
   color: #5eb3dd;
 }
-.container .common .about-city .temp .orta,
-.container .common .about-city .weather .orta,
-.container .common .about-city .wind .orta {
+.main-container .container .common .about-city .temp .orta,
+.main-container .container .common .about-city .weather .orta,
+.main-container .container .common .about-city .wind .orta {
   color: #d26e48 !important;
 }
-.container .common .about-city .temp .isti,
-.container .common .about-city .weather .isti,
-.container .common .about-city .wind .isti {
+.main-container .container .common .about-city .temp svg,
+.main-container .container .common .about-city .weather svg,
+.main-container .container .common .about-city .wind svg {
+  font-size: 40px !important;
+}
+.main-container .container .common .about-city .temp .isti,
+.main-container .container .common .about-city .weather .isti,
+.main-container .container .common .about-city .wind .isti {
   color: #ff2020;
 }
-.container .common .about-city .temp .fa-sun,
-.container .common .about-city .weather .fa-sun,
-.container .common .about-city .wind .fa-sun {
+.main-container .container .common .about-city .temp .fa-sun,
+.main-container .container .common .about-city .weather .fa-sun,
+.main-container .container .common .about-city .wind .fa-sun {
   color: #e6c612;
 }
-.container .common .about-city .temp .fa-cloud,
-.container .common .about-city .weather .fa-cloud,
-.container .common .about-city .wind .fa-cloud {
+.main-container .container .common .about-city .temp .fa-cloud,
+.main-container .container .common .about-city .weather .fa-cloud,
+.main-container .container .common .about-city .wind .fa-cloud {
   color: #e0e0e0;
 }
-.container .common .about-city .temp .fa-wind,
-.container .common .about-city .weather .fa-wind,
-.container .common .about-city .wind .fa-wind {
+.main-container .container .common .about-city .temp .bi-cloud,
+.main-container .container .common .about-city .weather .bi-cloud,
+.main-container .container .common .about-city .wind .bi-cloud {
+  font-size: 50px;
+  color: #e0e0e0;
+}
+.main-container .container .common .about-city .temp .fa-wind,
+.main-container .container .common .about-city .weather .fa-wind,
+.main-container .container .common .about-city .wind .fa-wind {
   color: #cacaca;
 }
-.container .common .about-city .temp .fa-snowflake,
-.container .common .about-city .weather .fa-snowflake,
-.container .common .about-city .wind .fa-snowflake {
+.main-container .container .common .about-city .temp .fa-snowflake,
+.main-container .container .common .about-city .weather .fa-snowflake,
+.main-container .container .common .about-city .wind .fa-snowflake {
   color: #5eb3dd;
 }
-.container .common .about-city .temp span,
-.container .common .about-city .weather span,
-.container .common .about-city .wind span {
+.main-container .container .common .about-city .temp span,
+.main-container .container .common .about-city .weather span,
+.main-container .container .common .about-city .wind span {
   margin-right: 20px;
 }
-.container .common .about-city p {
+.main-container .container .common .about-city p {
   font-size: 40px;
   letter-spacing: 1px;
 }
