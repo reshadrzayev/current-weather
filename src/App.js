@@ -31,12 +31,14 @@ const App = () => {
     const key = '26d1a5fbbf6b7d0235ba9c2e65026e02'
 
     const [error, setError] = useState(false)
-
-    const getWeather = async () => {
+    const urlQuery = `&q=${query}`
+    const urlLoc = `&lat=${latitude}&lon=${longitude}`
+    const getWeather = async (lat,lon) => {
         try {
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${key}&lat=${latitude}&lon=${longitude}`)
+            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?appid=${key}${query || query !== '' ? urlQuery : ''}&lat=${lat}&lon=${lon}`)
             setWeather(response.data)
             setQuery('')
+
         } catch (error) {
             if (error) {
                 console.log(error.message)
@@ -68,13 +70,14 @@ const App = () => {
 
 
     useEffect(() => {
-        if(navigator.geolocation){
+        if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((pos) => {
                 setLatitude(pos.coords.latitude)
                 setLongitude(pos.coords.longitude)
+                getWeather(pos.coords.latitude,pos.coords.longitude)
             })
         }
-    },[])
+    }, [])
 
     //TEMPERATURE
     const temp = Math.round(wthr.main.temp - 273.15)
