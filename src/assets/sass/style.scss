@@ -1,6 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -25,7 +29,7 @@ svg{
 .main-day {
   transition: 1s;
 
-  background-color: rgba(74, 123, 255, 1) !important;
+  background-color: rgb(90, 120, 203) !important;
 }
 ////
 .main-night {
@@ -39,7 +43,9 @@ svg{
   transition: 1s;
   min-height: 100vh;
   background-color: rgb(10, 13, 56);
-  font-family: 'Raleway', sans-serif !important;
+  //font-family: 'Raleway', sans-serif !important;
+  //font-family: 'Poppins', sans-serif !important;
+  font-family: 'Montserrat', sans-serif !important;
 
   .not-found{
     transition: 1s;
@@ -88,7 +94,7 @@ svg{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    padding: 0 20px;
     .search {
       margin-top: 30px;
       margin-bottom: 50px;
@@ -101,21 +107,23 @@ svg{
 
       input {
         height: 50px;
-        width: 90%;
+        width: 80%;
         font-size: 18px;
         letter-spacing: 1px;
         padding: 0 10px;
         background-color: transparent;
         outline: none;
         border: none;
+        font-weight: 500 !important;
       }
       input::placeholder{
         color: rgba(255, 255, 255, 0.5);
       }
 
       button {
+        font-weight: 400;
         color: #ffffff;
-        width: 10%;
+        width: 20%;
         height: 50px;
         background-color: transparent;
         outline: none;
@@ -124,9 +132,16 @@ svg{
         border-bottom: none;
         border-top: none;
         font-size: 16px;
-        //font-family: 'Yanone Kaffeesatz', sans-serif;
         letter-spacing: 1px;
         cursor: pointer;
+      }
+      @media screen and (max-width: 686px) {
+        input{
+          width: 70%;
+        }
+        button{
+          width: 30%;
+        }
       }
     }
 
@@ -134,49 +149,100 @@ svg{
       width: 100%;
       display: flex;
       justify-content: center;
-      flex-direction: row;
+      align-items: center;
+      flex-direction: column;
 
-      .name {
-        display: flex;
-        flex-direction: column;
-        //height: 100%;
-        align-items: flex-start;
-        justify-content: flex-start;
-        width: 50%;
-      .sunrise-sunset{
+      .top{
         display: flex;
         flex-direction: row;
+        justify-content: center;
         align-items: center;
-        .day-night{
+        width: 100%;
+        .name {
           display: flex;
-          align-items: center;
-          font-size: 20px;
-          font-weight: 500;
-          svg{
-            margin-right: 10px;
+          flex-direction: column;
+          //height: 100%;
+          align-items: flex-start;
+          justify-content: flex-start;
+          width: 50%;
+          p:nth-child(1){
+            word-break: break-word;
+          }
+          .temperature{
+            font-size: 40px;
+            font-weight: 500;
+          }
+          .date{
+            font-size: 20px;
+            font-weight: 500;
+          }
+          .sunrise-sunset{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .day-night{
+              display: flex;
+              align-items: center;
+              font-size: 20px;
+              font-weight: 500;
+              svg{
+                margin-right: 10px;
+                font-size: 30px;
+              }
+            }
+            p:nth-child(1){
+              margin-right: 40px;
+            }
+          }
+          @media screen and (max-width: 580px) {
+            .sunrise-sunset{
+              flex-direction: column;
+              p:nth-child(1){
+                margin-right: 0;
+              }
+            }
+          }
+          p:nth-child(1) {
+            font-weight: 600;
+            font-size: 40px;
+          }
+
+          p {
+            font-weight: 400;
             font-size: 30px;
           }
+          @media screen and (max-width: 700px) {
+            p:nth-child(1){
+              font-size: 30px;
+            }
+            .temperature{
+              font-size: 30px;
+            }
+          }
         }
-        p:nth-child(1){
-          margin-right: 40px;
+        .weather-condition{
+          align-self: flex-start;
+          width: 50%;
+          //align-items: flex-start;
+          display: flex;
+          justify-content: flex-end;
+          svg{
+            font-size: 250px !important;
+          }
+          @media screen and (max-width: 600px) {
+            svg{
+              font-size: 150px !important;
+            }
+          }
         }
       }
-        p:nth-child(1) {
-          font-weight: 600;
-          font-size: 40px;
-        }
-
-        p {
-          font-weight: 400;
-          font-size: 30px;
-        }
-      }
-
       .about-city {
-        width: 50%;
-        //justify-content: space-around;
+        margin-top: 100px;
+        width: 100%;
         align-items: center;
-
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         .temp,
         .weather,
         .wind {
@@ -231,8 +297,9 @@ svg{
         }
 
         p {
-          font-size: 40px;
+          font-size: 30px;
           letter-spacing: 1px;
+          //color: #5a247a;
         }
       }
     }

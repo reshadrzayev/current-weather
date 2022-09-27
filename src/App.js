@@ -36,11 +36,13 @@ const App = () => {
         try {
             const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${key}`)
             setWeather(response.data)
+            setQuery('')
         } catch (error) {
             if (error) {
                 console.log(error.message)
                 setError(true)
                 setLocation(query)
+                setQuery('')
             }
         }
     }
@@ -66,16 +68,14 @@ const App = () => {
 
 
     useEffect(() => {
-      if(!query || query===''){
-          navigator.geolocation.getCurrentPosition((pos) => {
-              setLatitude(pos.coords.latitude)
-              setLongitude(pos.coords.longitude)
-              if (longitude && latitude) {
-                  getCurrentLocWeather()
-              }
-          })
-      }
-    }, [latitude, longitude,query])
+        navigator.geolocation.getCurrentPosition((pos) => {
+            setLatitude(pos.coords.latitude)
+            setLongitude(pos.coords.longitude)
+            if (longitude && latitude) {
+                getCurrentLocWeather()
+            }
+        })
+    }, [])
 
     //TEMPERATURE
     const temp = Math.round(wthr.main.temp - 273.15)
@@ -155,19 +155,46 @@ const App = () => {
     }, [hours, minutes, sriseHours])
 
 
-
-    const cold = <Icon.ThermometerLow color="#5eb3dd"/>
+    const cold = <Icon.ThermometerLow/>
     const warm = <Icon.ThermometerHalf/>
-    const hot = <Icon.ThermometerHigh color="#ff2020"/>
-    const clear_day = <Icon.Sun color="rgb(230, 198, 18)"/>
+    const hot = <Icon.ThermometerHigh/>
+    const clear_day = <Icon.Sun/>
     const clear_night = <Icon.Moon/>
-    const cloud = <Icon.Cloud/>
+    const cloud_day = <Icon.CloudSun/>
+    const cloud_night = <Icon.CloudMoon/>
     const rain = <Icon.CloudRain/>
     const snow = <Icon.Snow/>
     const fog = <Icon.CloudFog2/>
     const thunder = <Icon.CloudLightning/>
     const wind = <Icon.Wind/>
     const humidity = <Icon.Moisture/>
+    const tornado = <Icon.Tornado/>
+
+    const weatherIcon = () => {
+        if (weather === "Clear") {
+            if (day) {
+                return clear_day
+            } else {
+                return clear_night
+            }
+        } else if (weather === "Clouds") {
+            if (day) {
+                return cloud_day
+            } else {
+                return cloud_night
+            }
+        } else if (weather === "Snow") {
+            return snow
+        } else if (weather === "Rain" || weather === "Drizzle") {
+            return rain
+        } else if (weather === "Mist" || weather === "Smoke" || weather === "Haze" || weather === "Dust" || weather === "Fog" || weather === "Sand" || weather === "Ash" || weather === "Squall") {
+            return fog
+        } else if (weather === "Tornado") {
+            return tornado
+        } else if (weather === "Thunderstorm") {
+            return thunder
+        }
+    }
 
     return (
         <div className={`main-container ${day ? "main-day" : "main-night"}`}>
@@ -181,35 +208,37 @@ const App = () => {
                     </button>
                 </div>
                 <div className="common">
-
-                    <div className="name">
-                        <p>
-                            {wthr.name} , {wthr.sys.country}
-                        </p> <br/>
-                        <p>
-                            {!isNaN(month) && Months[month - 1]} {!isNaN(date) && date+","} {!isNaN(weekday) && Days[weekday - 1]}
-                            <br/> {isNaN(hours) === true ? "00" : (hours < 10 ? "0" + hours : hours)} : {isNaN(minutes) === true ? "00" : (minutes < 10 ? "0" + minutes : minutes)}
-                        </p> <br/>
-                        <div className="sunrise-sunset">
-                            <p className="day-night">
-                                <Icon.Sunrise/> {isNaN(sriseHours) === true ? "00" : (sriseHours < 10 ? "0" + sriseHours : sriseHours)} : {isNaN(sriseMinutes) === true ? "00" : (sriseMinutes < 10 ? "0" + sriseMinutes : sriseMinutes)}
-                            </p>
-                            <p className="day-night">
-                                <Icon.Sunset/> {isNaN(ssetHours) === true ? "00" : (ssetHours < 10 ? "0" + ssetHours : ssetHours)} : {isNaN(ssetMinutes) === true ? "00" : (ssetMinutes < 10 ? "0" + ssetMinutes : ssetMinutes)}
-                            </p>
+                    <div className="top">
+                        <div className="name">
+                            <p>
+                                {wthr.name} , {wthr.sys.country}
+                            </p> <br/>
+                            <p className="temperature"> {wthr.main.temp === "temp" ? "0" : temp}˚C </p> <br/><br/><br/>
+                            <p className="date">
+                                {/*{!isNaN(month) && Months[month - 1]} {!isNaN(date) && date + ","} <br/>*/}
+                                {!isNaN(weekday) && Days[weekday - 1]}, {isNaN(hours) === true ? "00" : (hours < 10 ? "0" + hours : hours)} : {isNaN(minutes) === true ? "00" : (minutes < 10 ? "0" + minutes : minutes)}
+                            </p> <br/>
+                            <div className="sunrise-sunset">
+                                <p className="day-night">
+                                    <Icon.Sunrise/> {isNaN(sriseHours) === true ? "00" : (sriseHours < 10 ? "0" + sriseHours : sriseHours)} : {isNaN(sriseMinutes) === true ? "00" : (sriseMinutes < 10 ? "0" + sriseMinutes : sriseMinutes)}
+                                </p>
+                                <p className="day-night">
+                                    <Icon.Sunset/> {isNaN(ssetHours) === true ? "00" : (ssetHours < 10 ? "0" + ssetHours : ssetHours)} : {isNaN(ssetMinutes) === true ? "00" : (ssetMinutes < 10 ? "0" + ssetMinutes : ssetMinutes)}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="weather-condition">
+                            {weatherIcon()}
                         </div>
                     </div>
                     <div className="about-city">
-                        <div className="temp">
-                            <span>{temp > 15 ? hot : cold}</span> <p> {wthr.main.temp === "temp" ? "0" : temp}˚C </p>
-                        </div>
+                        {/*<div className="temp">*/}
+                        {/*    <span>{temp > 15 ? hot : cold}</span> <p> {wthr.main.temp === "temp" ? "0" : temp}˚C </p>*/}
+                        {/*</div>*/}
                         <div className="weather">
-            <span>{weather === "Clear" ? (day ? clear_day : clear_night)
-                : weather === "Clouds" ? cloud
-                    : weather === "Snow" ? snow
-                        : weather === "Rain" || weather === "Drizzle" ? rain
-                            : weather === "Mist" || weather === "Smoke" || weather === "Haze" || weather === "Dust" || weather === "Fog" || weather === "Sand" || weather === "Dust" || weather === "Ash" || weather === "Squall" || weather === "Tornado" ? fog
-                                : weather === "Thunderstorm" ? thunder : " "}</span>
+                        <span>
+                            {weatherIcon()}
+                        </span>
                             <p>{weather}</p>
                         </div>
                         <div className="wind">
