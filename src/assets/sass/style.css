@@ -234,6 +234,7 @@ svg {
 .main-container .container .common .about-city .temp,
 .main-container .container .common .about-city .weather,
 .main-container .container .common .about-city .wind {
+  padding: 5px;
   margin-bottom: 40px;
   display: flex;
   align-items: center;
@@ -294,9 +295,43 @@ svg {
 .main-container .container .common .about-city .wind span {
   margin-right: 20px;
 }
+@media screen and (max-width: 700px) {
+  .main-container .container .common .about-city .temp span,
+.main-container .container .common .about-city .weather span,
+.main-container .container .common .about-city .wind span {
+    margin-right: 10px;
+  }
+  .main-container .container .common .about-city .temp span svg,
+.main-container .container .common .about-city .weather span svg,
+.main-container .container .common .about-city .wind span svg {
+    font-size: 30px !important;
+  }
+}
+@media screen and (max-width: 420px) {
+  .main-container .container .common .about-city .temp span svg,
+.main-container .container .common .about-city .weather span svg,
+.main-container .container .common .about-city .wind span svg {
+    font-size: 25px !important;
+  }
+}
 .main-container .container .common .about-city p {
   font-size: 30px;
   letter-spacing: 1px;
+}
+@media screen and (max-width: 700px) {
+  .main-container .container .common .about-city p {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .main-container .container .common .about-city p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .main-container .container .common .about-city {
+    margin-top: 30px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

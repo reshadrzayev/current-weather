@@ -75,7 +75,7 @@ const App = () => {
                 getCurrentLocWeather()
             }
         })
-    }, [])
+    }, [longitude,latitude])
 
     //TEMPERATURE
     const temp = Math.round(wthr.main.temp - 273.15)

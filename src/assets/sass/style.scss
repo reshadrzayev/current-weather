@@ -246,6 +246,7 @@ svg{
         .temp,
         .weather,
         .wind {
+          padding: 5px;
           margin-bottom: 40px;
           display: flex;
           //justify-content: center;
@@ -294,12 +295,42 @@ svg{
           span {
             margin-right: 20px;
           }
+          @media screen and (max-width: 700px) {
+            span{
+              margin-right: 10px;
+              svg{
+                font-size: 30px !important;
+              }
+            }
+          }
+          @media screen and (max-width: 420px) {
+            span{
+              svg{
+                font-size: 25px !important;
+              }
+            }
+          }
         }
 
         p {
           font-size: 30px;
           letter-spacing: 1px;
           //color: #5a247a;
+        }
+        @media screen and (max-width: 700px) {
+          p{
+            font-size: 25px;
+          }
+        }
+        @media screen and (max-width: 420px) {
+          p{
+            font-size: 20px;
+          }
+        }
+      }
+      @media screen and (max-width: 420px){
+        .about-city{
+          margin-top: 30px;
         }
       }
     }
