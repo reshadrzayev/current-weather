@@ -34,7 +34,7 @@ const App = () => {
 
     const getWeather = async () => {
         try {
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${key}`)
+            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${key}&lat=${latitude}&lon=${longitude}`)
             setWeather(response.data)
             setQuery('')
         } catch (error) {
@@ -47,18 +47,18 @@ const App = () => {
         }
     }
 
-    const getCurrentLocWeather = async () => {
-        try {
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
-            setWeather(response.data)
-        } catch (error) {
-            if (error.response.status === 400) {
-                console.log("Loading...");
-            } else {
-                console.log(error.message);
-            }
-        }
-    }
+    // const getCurrentLocWeather = async () => {
+    //     try {
+    //         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
+    //         setWeather(response.data)
+    //     } catch (error) {
+    //         if (error.response.status === 400) {
+    //             console.log("Loading...");
+    //         } else {
+    //             console.log(error.message);
+    //         }
+    //     }
+    // }
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
@@ -68,14 +68,13 @@ const App = () => {
 
 
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition((pos) => {
-            setLatitude(pos.coords.latitude)
-            setLongitude(pos.coords.longitude)
-            if (longitude && latitude) {
-                getCurrentLocWeather()
-            }
-        })
-    }, [longitude,latitude])
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition((pos) => {
+                setLatitude(pos.coords.latitude)
+                setLongitude(pos.coords.longitude)
+            })
+        }
+    },[])
 
     //TEMPERATURE
     const temp = Math.round(wthr.main.temp - 273.15)
@@ -125,7 +124,6 @@ const App = () => {
         setsriseHours(ndSrise.getHours())
         setsriseMinutes(ndSrise.getMinutes())
         setsriseTime(ndSrise.getTime())
-        console.log(ndSrise.getMinutes())
 
         //SUNSET
         var ssetUtcSeconds = wthr.sys.sunset;
