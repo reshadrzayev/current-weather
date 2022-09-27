@@ -86,6 +86,30 @@ svg{
     opacity: 1;
     transform: translateX(0);
   }
+  @media screen and (max-width: 600px) {
+    .not-found{
+      width: 300px;
+      padding: 20px;
+      .content{
+        .icon{
+          margin-right: 20px;
+          svg{
+            font-size: 35px !important;
+          }
+        }
+        .text{
+          h2{
+            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: 600;
+          }
+          p{
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
 
   .container {
     max-width: 1000px;
@@ -234,6 +258,11 @@ svg{
               font-size: 150px !important;
             }
           }
+          @media screen and (max-width: 400px) {
+            svg{
+              font-size: 130px !important;
+            }
+          }
         }
       }
       .about-city {
@@ -243,10 +272,12 @@ svg{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        .wind{
+          padding: 5px;
+        }
         .temp,
         .weather,
         .wind {
-          padding: 5px;
           margin-bottom: 40px;
           display: flex;
           //justify-content: center;
@@ -305,6 +336,7 @@ svg{
           }
           @media screen and (max-width: 420px) {
             span{
+              margin-right: 5px;
               svg{
                 font-size: 25px !important;
               }
@@ -319,12 +351,12 @@ svg{
         }
         @media screen and (max-width: 700px) {
           p{
-            font-size: 25px;
+            font-size: 23px;
           }
         }
         @media screen and (max-width: 420px) {
           p{
-            font-size: 20px;
+            font-size: 18px;
           }
         }
       }

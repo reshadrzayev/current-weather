@@ -79,6 +79,26 @@ svg {
   opacity: 1;
   transform: translateX(0);
 }
+@media screen and (max-width: 600px) {
+  .main-container .not-found {
+    width: 300px;
+    padding: 20px;
+  }
+  .main-container .not-found .content .icon {
+    margin-right: 20px;
+  }
+  .main-container .not-found .content .icon svg {
+    font-size: 35px !important;
+  }
+  .main-container .not-found .content .text h2 {
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .main-container .not-found .content .text p {
+    font-size: 15px;
+  }
+}
 .main-container .container {
   max-width: 1000px;
   margin: auto;
@@ -223,6 +243,11 @@ svg {
     font-size: 150px !important;
   }
 }
+@media screen and (max-width: 400px) {
+  .main-container .container .common .top .weather-condition svg {
+    font-size: 130px !important;
+  }
+}
 .main-container .container .common .about-city {
   margin-top: 100px;
   width: 100%;
@@ -231,10 +256,12 @@ svg {
   flex-direction: row;
   justify-content: space-between;
 }
+.main-container .container .common .about-city .wind {
+  padding: 5px;
+}
 .main-container .container .common .about-city .temp,
 .main-container .container .common .about-city .weather,
 .main-container .container .common .about-city .wind {
-  padding: 5px;
   margin-bottom: 40px;
   display: flex;
   align-items: center;
@@ -308,6 +335,11 @@ svg {
   }
 }
 @media screen and (max-width: 420px) {
+  .main-container .container .common .about-city .temp span,
+.main-container .container .common .about-city .weather span,
+.main-container .container .common .about-city .wind span {
+    margin-right: 5px;
+  }
   .main-container .container .common .about-city .temp span svg,
 .main-container .container .common .about-city .weather span svg,
 .main-container .container .common .about-city .wind span svg {
@@ -320,12 +352,12 @@ svg {
 }
 @media screen and (max-width: 700px) {
   .main-container .container .common .about-city p {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 @media screen and (max-width: 420px) {
   .main-container .container .common .about-city p {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 @media screen and (max-width: 420px) {
