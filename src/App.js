@@ -66,14 +66,16 @@ const App = () => {
 
 
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition((pos) => {
-            setLatitude(pos.coords.latitude)
-            setLongitude(pos.coords.longitude)
-            if (longitude && latitude) {
-                getCurrentLocWeather()
-            }
-        })
-    }, [latitude, longitude, query])
+      if(!query || query===''){
+          navigator.geolocation.getCurrentPosition((pos) => {
+              setLatitude(pos.coords.latitude)
+              setLongitude(pos.coords.longitude)
+              if (longitude && latitude) {
+                  getCurrentLocWeather()
+              }
+          })
+      }
+    }, [latitude, longitude,query])
 
     //TEMPERATURE
     const temp = Math.round(wthr.main.temp - 273.15)
@@ -90,7 +92,6 @@ const App = () => {
     const [weekday, setWeekDay] = useState()
     const [date, setDate] = useState("Monday")
 
-    // const [time, setTime] = useState()
 
     function calcTime(offset) {
         var b = new Date()
@@ -101,7 +102,6 @@ const App = () => {
         setMonth(nd.getMonth())
         setWeekDay(nd.getDay())
         setDate(nd.getDate())
-        // setTime(nd)
     }
 
     const Months = ["January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"]
@@ -155,10 +155,6 @@ const App = () => {
     }, [hours, minutes, sriseHours])
 
 
-    // useEffect(()=>{
-    //
-    // },[wthr])
-
 
     const cold = <Icon.ThermometerLow color="#5eb3dd"/>
     const warm = <Icon.ThermometerHalf/>
@@ -172,16 +168,6 @@ const App = () => {
     const thunder = <Icon.CloudLightning/>
     const wind = <Icon.Wind/>
     const humidity = <Icon.Moisture/>
-
-    // const style = {
-    //     color:"red",
-    //     ':hover':{
-    //         color: "gray"
-    //     }
-    //     // "::before":{
-    //     //     color:"red"
-    //     // }
-    // }
 
     return (
         <div className={`main-container ${day ? "main-day" : "main-night"}`}>
